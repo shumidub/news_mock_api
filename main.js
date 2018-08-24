@@ -28,15 +28,7 @@ Sandbox.define('/news/categories/{id}/news','GET', function(req, res) {
     //TODO add id logic
     var id = req.params.id;
     
-     //EXAMPLE
-    // for (i in news.news00) {  if (news.news00[i].id == 18) list.push(news.news00[i]);  }
-    
-    // WORK
-    //  for (i in news.news00) {   list.push(news.news00[i]);  }
-     
-    // WORK 2 
-    // for(var i = 1; i <= 100; i++){ if (news.news00[i]!=null) list.push(news.news00[i]);  }
-    
+
     var newsList = [];
     if(id == 0){ for(var i = 0; i <= 14; i++){ if (news.news[i]!=null) newsList.push(news.news[i]);  } }
     else if (id == 1){ for(var i = 15; i <= 15; i++){ if (news.news[i]!=null) newsList.push(news.news[i]);  } }  
