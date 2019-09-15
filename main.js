@@ -1,19 +1,13 @@
-
 var category = require('./category.js') 
 var news = require('./news.js') 
 
-
 /////////////////////////////     GET CATEGORIES      ///////////////////////////////////
-
 Sandbox.define('/news/categories', 'GET', function(req, res){
     // if (!req.is('application/json')) { return res.send(400, 'Invalid content type, expected application/json'); }
     res.type('application/json');
     res.status(200);
     return res.json({code: 0, list: category.all})
 })
-
-
-
 
 /////////////////////////////     GET NEWS LIST    ////////////////////////////////////////
 Sandbox.define('/news/categories/{id}/news','GET', function(req, res) {
@@ -28,7 +22,6 @@ Sandbox.define('/news/categories/{id}/news','GET', function(req, res) {
     //TODO add id logic
     var id = req.params.id;
     
-
     var newsList = [];
     if(id == 0){ for(var i = 0; i <= 14; i++){ if (news.news[i]!=null) newsList.push(news.news[i]);  } }
     else if (id == 1){ for(var i = 15; i <= 15; i++){ if (news.news[i]!=null) newsList.push(news.news[i]);  } }  
@@ -43,9 +36,6 @@ Sandbox.define('/news/categories/{id}/news','GET', function(req, res) {
     return res.json({code: 0, list: list })
 })
     
-   
-
-
 /////////////////////////////       GET DETAIL LIST        ////////////////////////////////////////////
 Sandbox.define('/news/details', 'GET', function(req, res){
     // if (!req.is('application/json')) { return res.send(400, 'Invalid content type, expected application/json'); }
@@ -72,5 +62,3 @@ Sandbox.define('/news/details', 'GET', function(req, res){
     }
     else { return res.json({code: 0, news:detailNews})  }
 })
-
-
